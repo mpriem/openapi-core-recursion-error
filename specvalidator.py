@@ -8,10 +8,10 @@ from openapi_core.contrib.requests import RequestsOpenAPIRequest
 config = Config(
     spec_validator_cls=None,
 )
-openapi = OpenAPI.from_file_path('./testing/2024-02-15-preview.json', config=config)
+openapi = OpenAPI.from_file_path('./2024-02-15-preview.json', config=config)
 
 # Load the JSON body from a local file
-json_body_path = Path("./testing/input.json")
+json_body_path = Path("./input.json")
 json_body = json.loads(json_body_path.read_text())
 
 # Create a POST request
