@@ -25,5 +25,5 @@ request = requests.Request(
     json=json_body
 )
 openapi_request = RequestsOpenAPIRequest(request.prepare())
-result = openapi.unmarshal_request(openapi_request)
+result = openapi.unmarshal_request(openapi_request) #breaks on this line
 print(result)
