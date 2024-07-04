@@ -1,0 +1,50 @@
+{
+    "data_sources": [
+        {
+            "type": "azure_search",
+            "parameters": {
+              "endpoint": "https://mysearchinstance.search.windows.net",
+              "index_name": "azureblob-index-v",
+              "semantic_configuration": "default",
+              "query_type": "vector_simple_hybrid",
+              "embedding_dependency": {
+                "type": "deployment_name",
+                "deployment_name": "embed150301"
+              },
+              "fields_mapping": {
+                "content_fields_separator": "\n",
+                "content_fields": [
+                  "docContent"
+                ],
+                "filepath_field": "docLink",
+                "title_field": "docTitle",
+                "url_field": "docId",
+                "vector_fields": ["docContentVector"]
+              },
+              "in_scope": true,
+              "filter": null,
+              "strictness": 3,
+              "top_n_documents": 3,
+              "authentication": {
+                "type": "system_assigned_managed_identity"
+              }
+            }
+          }
+    ],
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are an AI assistant that helps people find information."
+        },
+        {
+            "role": "user",
+            "content": "what is xAI?"
+        }
+    ],
+    "deployment": "gpt350301",
+    "temperature": 0,
+    "top_p": 1,
+    "max_tokens": 800,
+    "stop": null,
+    "stream": false
+}
